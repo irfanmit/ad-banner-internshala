@@ -6,15 +6,24 @@ import BannerImageComp from "../../components/BannerImageComp"; // Assuming you 
 import adsData from "../../data/ads.json"; // Assuming you have this data
 import { Container, Grid } from "@mui/material";
 
-const Home: React.FC = () => {
-  const [ads, setAds] = useState(adsData);
-  const [editingAd, setEditingAd] = useState(null);
+type Ad = {
+  id: number;
+  title: string;
+  description: string;
+  cta: string;
+  image: string;
+  background: string;
+};
 
-  const handleEdit = (ad) => {
+const Home: React.FC = () => {
+  const [ads, setAds] = useState<Ad[]>(adsData);
+  const [editingAd, setEditingAd] = useState<Ad | null>(null);
+
+  const handleEdit = (ad: Ad) => {
     setEditingAd(ad);
   };
 
-  const handleSave = (updatedAd) => {
+  const handleSave = (updatedAd: Ad) => {
     setAds(ads.map(ad => ad.id === updatedAd.id ? updatedAd : ad));
     setEditingAd(null);
   };
