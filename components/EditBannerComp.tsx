@@ -34,7 +34,7 @@ const EditBannerTemplateBs: React.FC<EditBannerProps> = ({ open, initialData, on
     <Dialog open={open} onClose={onClose}>
       <DialogTitle>Edit Ad Banner</DialogTitle>
       <DialogContent>
-        <img src = {formData.image} style={{ width: '70%', borderRadius: '8px' }} />
+        <img src = {image} style={{ width: '70%', borderRadius: '8px' }} />
         <TextField
           name="title"
           label="Title"
