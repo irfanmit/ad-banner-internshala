@@ -7,22 +7,18 @@ type EditBannerProps = {
     id: number;
     title: string;
     description: string;
-    cta: string;
     image: string;
-    background: string;
   };
   onSave: (data: any) => void;
   onClose: () => void;
 };
 
-const EditBannerTemplateBs: React.FC<EditBannerProps> = ({ open, initialData, onSave, onClose, image }) => {
+const EditBannerTemplateBs: React.FC<EditBannerProps> = ({ open, initialData, onSave, onClose }) => {
   const [formData, setFormData] = useState(initialData || {
     id: 0,
     title: '',
     description: '',
-    cta: '',
-    image: '',
-    background: ''
+    image : ''
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -38,7 +34,7 @@ const EditBannerTemplateBs: React.FC<EditBannerProps> = ({ open, initialData, on
     <Dialog open={open} onClose={onClose}>
       <DialogTitle>Edit Ad Banner</DialogTitle>
       <DialogContent>
-        <img src = {image} style={{ width: '70%', borderRadius: '8px' }} />
+        <img src = {formData.image} style={{ width: '70%', borderRadius: '8px' }} />
         <TextField
           name="title"
           label="Title"

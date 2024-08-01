@@ -30,7 +30,6 @@ const Home: React.FC = () => {
       </Grid>
       {editingAd && (
         <EditBannerTemplateBs
-          image = {editingAd.image}
           open={Boolean(editingAd)}
           initialData={editingAd}
           onSave={handleSave}
